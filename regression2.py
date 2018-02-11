@@ -2,10 +2,12 @@ import numpy as np
 import tensorflow as tf
 import pandas as pd
 import matplotlib.pyplot as plt
-x_data= np.linspace(0.0, 10.0, 1000000)
+
+x_data = np.linspace(0.0, 10.0, 1000000)
 noise = np.random.randn(len(x_data))
 
 #y=mx+b
+
 y_true = (0.5*x_data) + 5 + noise
 
 x_df = pd.DataFrame(data=x_data, columns= ['X DATA'])
