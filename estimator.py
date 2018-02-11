@@ -61,7 +61,10 @@ y_hat = x_data* model_m + model_b
 
 ## ESTIMATOR API
 
+# set up feature columns
 feat_cols = [tf.feature_column.numeric_column('x',shape=[1])]
+
+#Estimator model
 estimator = tf.estimator.LinearRegressor(feature_columns=feat_cols)
 
 x_train, x_eval, y_train, y_eval = train_test_split(x_data,y_true,test_size=0.3, random_state = 101)
@@ -96,6 +99,7 @@ predictions = []
 for pred in estimator.predict(input_fn=input_fn_predict):
     predictions.append(pred['predictions'])
 
+#plot wrt the previous scatter plot data
 my_data.sample(n=250).plot(kind='scatter',x='X DATA',y='Y')
 plt.plot(np.linspace(0,10,10),predictions,'r')
 plt.show()
